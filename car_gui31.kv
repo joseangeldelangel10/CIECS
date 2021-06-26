@@ -1,0 +1,377 @@
+#:import Tsensor dht11_temperature
+#:import Builder kivy.lang.Builder
+WindowManager:
+	Main_menu:
+		id: Main_menu_id
+	Main_menu_buttons:
+		id: Main_menu_buttons_id
+	Song_buttons:
+		id: Song_buttons_id
+	Menu_tabs:
+		id: Menu_tabs_id
+	Media_menu_device_select:
+		id: Media_menu_device_select_id
+	Media_menu_media_info_controls:
+		id: Media_menu_media_info_controls_id
+	Media_menu_media_info:
+		id: Media_menu_media_info_id
+	Media_menu_sd_songs:
+		id: Media_menu_sd_songs_id
+	Media_menu_gui_sd_songs:
+		id: Media_menu_gui_sd_songs_id
+	Calls_menu_info:
+		id: Calls_menu_info_id
+	Calls_menu_recents:
+		id: Calls_menu_recents_id
+	Media_menu_gui:
+		id: Media_menu_gui_id
+	Calls_menu_gui:
+		id: Calls_menu_gui_id
+	Car_control_menu_gui:
+		id: Car_control_menu_gui_id
+	Bluetooth_menu_gui:
+		id: Bluetooth_menu_gui_id
+	Media_menu:
+		id: Media_menu_id
+	Calls_menu:
+		id: Calls_menu_id
+	Car_control_menu:
+		id: Car_control_menu_id
+	Bluetooth_menu:
+		id: Bluetooth_menu_id
+	Bt_menu_info:
+		id: Bt_menu_info_id
+	Bt_menu_device_select:
+		id: Bt_menu_device_select
+
+
+<Main_menu_buttons>:
+	name: "Main_menu_buttons"
+	GridLayout:
+		cols: 4
+		padding: 5
+		spacing: 10
+		Button:
+			text: "Media"
+			font_size: 30
+			background_color: [0.95,0.61,0.07,0.5]
+			on_press: app.root.current = "Media_menu"
+			background_normal: 'images/media_main_menu.png'
+		Button:
+			text: "Calls"
+			font_size: 30
+			background_color: [0.95,0.81,0.24,0.5]
+			on_press: app.root.current = "Calls_menu"
+			background_normal: 'images/calls_main_menu.png'
+		Button:
+			text: "Car control"
+			font_size: 30
+			background_color: [0.18,0.8,0.44,0.5]
+			on_press: app.root.current = "Car_control_menu"
+			background_normal: 'images/car_main_menu.png'
+		Button:
+			text: "Bluetooth"
+			font_size: 30
+			background_color: [0.20,0.59,0.85,0.5]
+			on_press: app.root.current = "Bluetooth_menu"
+			background_normal: 'images/bluetooth_main_menu.png'
+
+
+<Main_menu>:
+	name: "Main_menu"
+	BoxLayout:
+		orientation: "vertical"
+		Label: 
+			text: "Welcome to CIECS info center the temperature is {}".format(Tsensor.get_temperature(36))
+			size_hint: (1,0.2)
+			font_size: 24
+		Main_menu_buttons:
+
+<Media_menu_media_info_controls>
+    name: "Media_menu_media_info_controls"
+    GridLayout:
+        cols: 3
+        padding: 10
+        spacing: 10
+        Button:
+            background_normal: 'images/backward.png'    
+            on_press: root.Rewind()
+        Button:
+            background_normal: 'images/play.png'        
+            on_press: root.play_pause()
+        Button:
+            background_normal: 'images/forward.png'     
+            on_press: root.Forward()
+
+<Menu_tabs>:
+	name: "Menu tabs"
+	GridLayout:
+		rows: 5
+		Button:
+			#text: "home"
+			background_normal: 'images/home_icon.png'
+			background_color: [0.58,0.60,0.60,0.5]
+			on_press: app.root.current = "Main_menu"
+		Button:
+			#text:"Med"
+			background_normal: 'images/media_icon.png'
+			background_color: [0.95,0.61,0.07,0.5]
+			on_press: app.root.current = "Media_menu"
+		Button:
+			#text:"Calls"
+			background_normal: 'images/calls_icon.png'
+			background_color: [0.95,0.81,0.24,0.5]
+			on_press: app.root.current = "Calls_menu"
+		Button:
+			#text:"Nav"
+			background_normal: 'images/car_icon.png'
+			background_color: [0.18,0.8,0.44,0.5]
+			on_press: app.root.current = "Car_control_menu"
+		Button:
+			#text:"Bluet"
+			background_normal: 'images/bluetooth_icon.png'
+			background_color: [0.20,0.59,0.85,0.5]
+			on_press: app.root.current = "Bluetooth_menu"
+
+
+<Media_menu_device_select>
+	name: "Media_menu_device_select"
+	BoxLayout:
+		orientation: "vertical"
+		Label:
+			text: "Devices"
+			font_size: 20
+		Button:
+			text: "Radio"
+		Button:
+			text: "SD card"
+			#on_press: root.display_sd_songs()
+			on_press: app.root.current = "Media_menu_sd_songs"
+			#on_press: app.root.current = "Song_buttons"
+		Button:
+			text: "Bluetooth"
+		Button:
+			id: usb_id
+			text: "USB"
+
+
+<Media_menu_gui>:
+	name: "Media_menu_gui"
+	GridLayout:
+		cols: 2
+		padding: 20
+		spacing: 20
+		Media_menu_device_select:
+			size_hint: (0.3,1)
+		Media_menu_media_info:
+
+
+<Media_menu>:
+	name: "Media_menu"
+	BoxLayout:
+		orientation: "horizontal"
+		Menu_tabs:
+			size_hint: (0.1,1)
+		Media_menu_gui:
+
+<Media_menu_gui_sd_songs>:
+	name: "Media_menu_gui_sd_songs"
+	GridLayout:
+		cols: 2
+		padding: 20
+		spacing: 20
+		Media_menu_device_select:
+			size_hint: (0.3,1)
+		Song_buttons:
+
+
+<Media_menu_sd_songs>:
+	name: "Media_menu_sd_songs"
+	BoxLayout:
+		orientation: "horizontal"
+		Menu_tabs:
+			size_hint: (0.1,1)
+		Media_menu_gui_sd_songs:
+
+<Calls_menu_recents>
+	name: "Calls_menu_recents"
+	BoxLayout:
+		orientation: "vertical"
+		Label:
+			text: "Recents"
+			font_size: 20
+		Button:
+			text: "Recent 1"
+		Button:
+			text: "Recent 2"
+		Button:
+			text: "Recent 3"
+		Button:
+			text: "Recent 4"
+
+<Calls_menu_info>
+	name:"Calls_menu_info"
+	GridLayout:
+		rows: 3
+		padding: 5
+		spacing: 5
+		Label:
+			text: "Incoming"
+			font_size: 32
+			size_hint: (1,0.3)
+		Label:
+			text: "Contact name"
+			size_hint: (1,0.3)
+		Button:
+			text: "Answer/Reject"
+
+<Calls_menu_gui>:
+	name: "Calls_menu_gui"
+	GridLayout:
+		cols: 2
+		padding: 20
+		spacing: 20
+		Calls_menu_recents:
+			size_hint: (0.3,1)
+		Calls_menu_info:
+
+<Calls_menu>:
+	name: "Calls_menu"
+	BoxLayout:
+		orientation: "horizontal"
+		Menu_tabs:
+			size_hint: (0.1,1)
+		Calls_menu_gui:
+
+<Car_control_menu_gui>:
+	name: "Car_control_menu_gui"
+	GridLayout:
+		rows: 2
+		cols: 1
+		padding: 20
+        spacing: 20
+		Button:
+			#text: "Emergency Lights"
+			on_press: root.emergency_lights()
+			background_normal: 'images/emergency_lights_icon.png'
+			font_size: 32
+			size_hint: (1,0.4)
+		Lights_and_sunroof:
+				
+
+<Lights_and_sunroof>
+	name: "Lights_and_sunroof"
+	BoxLayout:
+		orientation: "horizontal"
+		Light_options:
+			size_hint: (0.6,1)
+			#text: "Lights"
+		Sunroof_button:
+			#text: "Sunroof"
+
+<Light_options>
+	name: "Light_options"
+	GridLayout:
+		rows: 4
+		cols: 1
+		padding: 20
+        spacing: 10
+		Button:
+			#text: "Off"
+			on_press: root.front_lights(False,False)
+			background_normal : 'images/lights_off_icon.png'
+		Button:
+			#text: "cuartos"
+			on_press: root.front_lights(False,True)
+			background_normal : 'images/low_lights_icon.png'
+		Button:
+			#text: "medias"
+			on_press: root.front_lights(True,False)
+			background_normal : 'images/mid_lights_icon.png'
+		Button:
+			#text: "altas"
+			on_press: root.front_lights(True,True)
+			background_normal : 'images/high_lights_icon.png'
+
+<Sunroof_button>
+	name: "Sunroof_button"
+	GridLayout:
+		rows: 1
+		cols: 1
+		padding: 10
+        spacing: 10
+		Button:
+			text: "Sunroof"
+			on_press: root.sunroof_control()
+			background_normal: 'images/sunroof_icon.png'
+
+
+
+<Car_control_menu>:
+	name: "Car_control_menu"
+	BoxLayout:
+		orientation: "horizontal"
+		Menu_tabs:
+			size_hint: (0.1,1)
+		Car_control_menu_gui:
+
+<Bt_menu_device_select>
+	name: "Bt_menu_device_select"
+	BoxLayout:
+		orientation: "vertical"
+		Label:
+			text: "Devices"
+			font_size: 20
+		Button:
+			text: "iPhone 12 Pro Max"
+		Button:
+			text: "Samsung Galaxy S20"
+
+		Label:
+			text: "Controls"
+			font_size: 20
+
+		Button:
+			text: "Connect New Device"
+		Button:
+			text: "Erase Device"
+
+
+
+<Bt_menu_info>
+	name:"Bt_menu_info"
+	GridLayout:
+		id: grid_id
+		rows: 3
+		padding: 5
+		spacing: 5
+		Label:
+			text: "Bluetooth Control center"
+			font_size: 32
+			size_hint: (1,0.3)
+		Label:
+			text: "Connected to: iPhone 12 Pro Max de Leonardo"
+			size_hint: (1,0.3)
+		
+
+
+<Bluetooth_menu_gui>:
+	name: "Bluetooth_menu_gui"
+	GridLayout:
+		cols: 2			# Hice 2 columnas pa que se parezca al media menu
+		padding: 20
+		spacing: 20
+		Bt_menu_device_select:	# Manda llamar al selecctor de dispositivos Bt
+			size_hint: (0.3,1)
+		Bt_menu_info:		# manda a llamar a dos labels con info de Bt
+		
+
+<Bluetooth_menu>:
+	name: "Bluetooth_menu"
+	BoxLayout:
+		orientation: "horizontal"
+		Menu_tabs:
+			size_hint: (0.1,1)
+		Bluetooth_menu_gui:
+
+
