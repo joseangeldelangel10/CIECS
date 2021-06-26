@@ -9,7 +9,8 @@ user the possibility to pause the song, play the next song and play the previous
 
 Once the project was completed we were able to display a GUI in the official RaspberryPI 7"
 display using kivy framework. We were also able to reproduce mp3 files and to control car luxuries
-as shown in this **video:** [https://www.youtube.com/watch?v=LXd02VLev2I&t=316s].
+as shown in this **video:** [https://www.youtube.com/watch?v=LXd02VLev2I&t=316s] (please notice that
+the video title is in spanish but the whole tecnical overview is in **English**).
 
 For further details please refer to the **report** found at:
 https://drive.google.com/file/d/1roVKvkTU1Aj1GDYk1zVPgRM2NIGOw_m0/view?usp=sharing
