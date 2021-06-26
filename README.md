@@ -8,42 +8,25 @@ rate and digitalization type. Another system requirement was that the system sho
 user the possibility to pause the song, play the next song and play the previous song.
 
 Once the project was completed we were able to display a GUI in the official RaspberryPI 7"
-display using kivy framework. We were also able to reproduce mp3 files and to control car luxuries.
+display using kivy framework. We were also able to reproduce mp3 files and to control car luxuries
+as shown in this [video][https://www.youtube.com/watch?v=LXd02VLev2I&t=316s].
 
 For further details please refer to the report found at:
 https://drive.google.com/file/d/1roVKvkTU1Aj1GDYk1zVPgRM2NIGOw_m0/view?usp=sharing
 
-Developed by: **Jose Angel Del Angel Dominguez and Leonardo Javier Nava Castellanos**
+Developed by: **Jose Angel Del Angel Dominguez** and **Leonardo Javier Nava Castellanos**
 
 
-## Video Walkthrough
+## Final prototype
 
-Here's a walkthrough of implemented user stories:
+Here are some images showing the main functions of the project:
 
-<img src= 'walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src= '2021-06-26.png' title='Image1' width='' alt='Image 1' />
 
+<img src= '2021-06-26(1).png' title='Image1' width='' alt='Image 1' />
 
-Here's a walkthrough of landscape functionality:
+<img src= '2021-06-26(2).png' title='Image1' width='' alt='Image 1' />
 
-<img src= 'walkthrough2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src= '2021-06-26(3).png' title='Image1' width='' alt='Image 1' />
 
-GIF created with [LiceCap](https://www.cockos.com/licecap/).
-
-## Challenges when developing the app
-
-**Getting youtube video url and passing it through diferent classes:**
-
-Youtube video feature was a whole challenge that involved getting the id of a certain movie, using such id to get the video url and generating the Youtube player view. 
-
-In this challenge the time at wich the youtube url was retrived was crucial, since we should already have the youtubr url before generating the youtube player view and thus, url culdn't be retrivered in the MovieTrailer activity. To solve this we retrived the URL in the MovieDescription activity wrapping it and passing it to the MovieTrailer activity.
-
-**Modern android versions avoiding icons in toolbar**
-
-Modern versions of android made difficult to have an icon displayed inside of the toolbar, and since many android forums are out of date with that feature a large research was done. 
-
-**Retriving reviews and wrapping two arguments**
-
-In order to get the movie reviews we implemented a process similar to the one found in Youtube Player View; nontheless creating our own recycled view, the required adapter and all the methods required for such recycled view was a challenge and a huge opportunity to lear about Recycled Views. To make the youtube videos task easier the View Holders in the recycled view contain text views instead of complex views.
-
-Since we should used the movie id to get reviews that would be displayed in the same window as the yt video, we wrappped and passed to the MovieTrailer the youtube video URL and the movie id (two different items) using a string array containing both elements (movie id and youtube URL).
 
