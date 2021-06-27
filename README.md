@@ -1,6 +1,6 @@
 # CIECS - *Car Info Entretainment and Control System*
 
-**CIECS** this system was created as a project for a college course, the project consisted in 
+**CIECS** was created as a project for a college course, the project consisted in 
 designing a Car Info Entertainment System that should be able to reproduce mp3 songs stored in
 an SD Card. The system should also be able to display in some way the details of each song, 
 such as: name of each mp3 file, the name of the song, artists, album, release date, sampling 
